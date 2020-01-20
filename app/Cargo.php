@@ -20,8 +20,9 @@ class Cargo extends Model
 
     public function cityFrom()
     {
-        return $this->hasOne(City::class, 'id',  'from_city_id');
+        return $this->hasOne(City::class, 'id', 'from_city_id');
     }
+
     public function cityTo()
     {
         return $this->hasOne(City::class, 'id', 'to_city_id');

@@ -3,7 +3,6 @@
 
 namespace App\Http\Controllers\Api;
 
-
 use App\Http\Controllers\Controller;
 use App\Cargo;
 use Illuminate\Http\Request;
@@ -12,16 +11,15 @@ class CargoApiController extends Controller
 {
     public function index()
     {
-
-        $cargoes = Cargo::with(['cityFrom', 'cityTo'])->get(); //with('relation method in model')
+        $cargoes = Cargo::with(['cityFrom', 'cityTo'])->get();
         return response()->json([
             'cargoes' => $cargoes,
         ], 200);
     }
+
     public function store(Request $request)
     {
         // TODO: validate
-
         $newCargo = new Cargo([
             'name' => $request->get('name'),
             'weight' => $request->get('weight'),

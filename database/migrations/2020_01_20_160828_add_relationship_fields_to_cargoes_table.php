@@ -21,7 +21,6 @@ class AddRelationshipFieldsToCargoesTable extends Migration
 
         });
     }
-
     /**
      * Reverse the migrations.
      *

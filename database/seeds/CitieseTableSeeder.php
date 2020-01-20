@@ -15,7 +15,7 @@ class CitieseTableSeeder extends Seeder
         $cities = [
             [
                 'id' => 1,
-               'city_name' => 'Киев',
+                'city_name' => 'Киев',
             ],
             [
                 'id' => 2,
@@ -34,7 +34,6 @@ class CitieseTableSeeder extends Seeder
                 'city_name' => 'Тернополь',
             ],
         ];
-
         City::insert($cities);
     }
 }

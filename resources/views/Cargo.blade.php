@@ -11,14 +11,14 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
-        <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet"/>
 
     </head>
     <body>
     <div class="container" id="app">
         <div class="row justify-content-center">
             <div class="col-md-12 text-left">
-                <h1>Биржа грузов</h1>
+                <h1>{{__('Биржа грузов')}}</h1>
             </div>
         </div>
         {{--Add new cargo--}}
@@ -27,7 +27,7 @@
                 <div class="card">
                     <div class="card-body">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCargoModal">
-                            Добавить
+                            {{__('Добавить')}}
                         </button>
                         {{--MODAL--}}
                         <div class="modal fade" id="addCargoModal" tabindex="-1" role="dialog"
@@ -35,7 +35,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="cargoModalLabel">Добавить груз</h5>
+                                        <h5 class="modal-title" id="cargoModalLabel">{{__('Добавить груз')}}</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -43,41 +43,41 @@
                                     <div class="modal-body">
                                         <form action="#" method="post">
                                             <div class="form-group">
-                                                <label for="post-name" class="label">Название груза</label>
+                                                <label for="post-name" class="label">{{__('Название груза')}}</label>
                                                 <input type="text" name="name" v-model="name" class="form-control"
                                                        id="cargo-name">
                                             </div>
                                             <div class="form-group">
-                                                <label for="post-weight" class="label">Вес в тоннах</label>
+                                                <label for="post-weight" class="label">{{__('Вес в тоннах')}}</label>
                                                 <input type="text" name="weight" v-model="weight" class="form-control"
                                                        id="cargo-weight">
                                             </div>
                                             <div class="form-group">
-                                                <label for="cargo-from" class="label">Город загрузки</label>
+                                                <label for="cargo-from" class="label">{{__('Город загрузки')}}</label>
                                                 <select class="form-control " name="cities[]" id="cargo-from"
                                                         v-model="from_city_id">
                                                     @foreach($cities as $id_city=>$city)
                                                         <option
-                                                            value="{{ $id_city }} {{ in_array($id_city, old('categories', [])) ? 'selected' : '' }}">
+                                                            value="{{ $id_city }}">
                                                             {{ $city }}
                                                         </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="cargo-to" class="label">Город Доставки</label>
+                                                <label for="cargo-to" class="label">{{__('Город Доставки')}}</label>
                                                 <select class="form-control " name="cities[]" id="cargo-to"
                                                         v-model="to_city_id">
                                                     @foreach($cities as $id_city=>$city)
                                                         <option
-                                                            value="{{ $id_city }} {{ in_array($id_city, old('categories', [])) ? 'selected' : '' }}">
+                                                            value="{{ $id_city }}">
                                                             {{ $city }}
                                                         </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="post-route" class="label">дата доставки</label>
+                                                <label for="post-route" class="label">{{__('дата доставки')}}</label>
                                                 <input type="date" name="delivery_date" v-model="delivery_date"
                                                        class="form-control"
                                                        id="cargo-date">
@@ -87,7 +87,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         <button class="btn btn-primary" @click="addCargo()" data-dismiss="modal">
-                                            SAVE
+                                            {{__('SAVE')}}
                                         </button>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@
             <div class="col-md-12 mt-4">
                 <div class="card">
                     <div class="card-header">
-                        Всего: @{{ loads.length }} грузов
+                        {{__('Всего')}}: @{{ loads.length }} {{__('грузов')}}
                     </div>
                 </div>
                 {{--LIST All Cargo in AKKORDION--}}
@@ -110,7 +110,7 @@
                     <div class="card" v-for="(load,index) in loads">
                         <div class="card-header" v-bind:id="'heading' + load.id">
                             <h5 class="mb-0 text-center">
-                                <button class="btn btn-link btn-lg btn-block collapsed" type="button" data-toggle="collapse"
+                                <button class="btn btn-link btn-lg btn-block collapsed btn-custom" type="button" data-toggle="collapse"
                                         v-bind:data-target="'#Cargo' + load.id" aria-expanded="true"
                                         v-bind:aria-controls="'Cargo' + load.id">
                                     <table class="table" id="AllCargoesTable">
@@ -127,7 +127,7 @@
                         <div v-bind:id="'Cargo' + load.id" class="collapse show"
                              v-bind:aria-labelledby="'heading' + load.id" data-parent="#accordionExample">
                             <div class="card-body text-center">
-                                <img src="{{ asset('storage/cargoMap/maps-750x429.webp') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('storage/cargoMap/maps-750x429.webp') }}" alt="map" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -142,9 +142,7 @@
         var app = new Vue({
             el: '#app',
             data: {
-                errorMsg: '',
                 name: '',
-                successMsg: '',
                 from_city_id: '',
                 to_city_id: '',
                 weight: '',
@@ -158,11 +156,9 @@
                 getAllPosts() {
                     axios.get('/api').then(function (response) {
                         if (response.data.exception) {
-                            app.errorMsg = response.data.message;
-                            console.log(response);
+                            alert('Error');
                         } else {
                             app.loads = response.data.cargoes;
-                            console.log(app.loads)
                         }
                     });
                 },
@@ -175,12 +171,10 @@
                         weight: app.weight,
                         delivery_date: app.delivery_date,
                     }).then(function (response) {
-                        if (error.response) {
-
+                        if (response.data.error) {
+                            alert('Error');
                         } else {
                             app.getAllPosts();
-                            app.successMsg = response.data.message;
-                            console.log('success')
                         }
                     });
                 },
