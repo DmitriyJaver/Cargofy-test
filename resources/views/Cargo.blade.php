@@ -110,21 +110,21 @@
                     <div class="card" v-for="(load,index) in loads">
                         <div class="card-header" v-bind:id="'heading' + load.id">
                             <h5 class="mb-0 text-center">
-                                <button class="btn btn-link btn-lg btn-block collapsed btn-custom" type="button" data-toggle="collapse"
-                                        v-bind:data-target="'#Cargo' + load.id" aria-expanded="true"
+                                <button class="btn btn-link btn-lg collapsed btn-block btn-custom" type="button" data-toggle="collapse"
+                                        v-bind:data-target="'#Cargo' + load.id" aria-expanded="false"
                                         v-bind:aria-controls="'Cargo' + load.id">
-                                    <table class="table" id="AllCargoesTable">
-                                        <tr>
-                                            <td>@{{load.delivery_date}}</td>
-                                            <td>@{{load.city_from.city_name}} – @{{load.city_to.city_name}}</td>
-                                            <td>@{{load.name}}</td>
-                                            <td>@{{load.weight}}</td>
-                                        </tr>
-                                    </table>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">@{{load.delivery_date}}</div>
+                                            <div class="col-4">@{{load.city_from.city_name}} – @{{load.city_to.city_name}}</div>
+                                            <div class="col-3">@{{load.name}}</div>
+                                            <div class="col">@{{load.weight}}</div>
+                                        </div>
+                                    </div>
                                 </button>
                             </h5>
                         </div>
-                        <div v-bind:id="'Cargo' + load.id" class="collapse show"
+                        <div v-bind:id="'Cargo' + load.id" class="collapse"
                              v-bind:aria-labelledby="'heading' + load.id" data-parent="#accordionExample">
                             <div class="card-body text-center">
                                 <img src="{{ asset('storage/cargoMap/maps-750x429.webp') }}" alt="map" class="img-fluid">
@@ -163,7 +163,7 @@
                     });
                 },
                 addCargo() {
-                    console.log('HEY')
+                    console.log(app.delivery_date);
                     axios.post('/api/create', {
                         name: app.name,
                         from_city_id: app.from_city_id,

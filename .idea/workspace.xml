@@ -5,10 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Cargo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cargo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CargoApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CargoApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CargoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CargoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_20_160828_add_relationship_fields_to_cargoes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_20_160828_add_relationship_fields_to_cargoes_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/CitieseTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CitieseTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_18_111622_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_18_111622_create_cargoes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/CargoesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CargoesTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cargo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cargo.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -197,7 +198,7 @@
       <workItem from="1579514624689" duration="13411000" />
       <workItem from="1579532576570" duration="356000" />
       <workItem from="1579533725855" duration="353000" />
-      <workItem from="1579534249290" duration="11247000" />
+      <workItem from="1579534249290" duration="16693000" />
     </task>
     <servers />
   </component>

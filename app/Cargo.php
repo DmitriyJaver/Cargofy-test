@@ -11,9 +11,9 @@ class Cargo extends Model
     protected $fillable = [
         'name',
         'weight',
-        'delivery_date',
         'from_city_id',
         'to_city_id',
+        'delivery_date'
     ];
 
     public $timestamps = false;
