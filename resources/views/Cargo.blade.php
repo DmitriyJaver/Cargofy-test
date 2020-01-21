@@ -42,6 +42,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <form action="#" method="post">
+                                            @csrf
                                             <div class="form-group">
                                                 <label for="post-name" class="label">{{__('Название груза')}}</label>
                                                 <input type="text" name="name" v-model="name" class="form-control"
