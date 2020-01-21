@@ -11,5 +11,5 @@
 |
 */
 
-Route::get('/', 'PostController@index');
+Route::get('/', 'CargoController@index');
 
