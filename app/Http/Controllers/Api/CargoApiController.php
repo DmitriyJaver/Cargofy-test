@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Cargo;
+use App\Http\Requests\StoreCargoRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class CargoApiController extends Controller
         ], 200);
     }
 
-    public function store(Request $request)
+    public function store(StoreCargoRequest $request)
     {
         // TODO: validate
         $formatDate = Carbon::parse($request->get('delivery_date'))->format('d.m');

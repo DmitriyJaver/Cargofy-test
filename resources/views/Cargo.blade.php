@@ -148,6 +148,7 @@
                 weight: '',
                 delivery_date: '',
                 loads: [],
+                errorMsg : '',
             },
             mounted: function () {
                 this.getAllPosts();
@@ -159,11 +160,11 @@
                             alert('Error');
                         } else {
                             app.loads = response.data.cargoes;
+
                         }
                     });
                 },
                 addCargo() {
-                    console.log(app.delivery_date);
                     axios.post('/api/create', {
                         name: app.name,
                         from_city_id: app.from_city_id,
@@ -171,12 +172,13 @@
                         weight: app.weight,
                         delivery_date: app.delivery_date,
                     }).then(function (response) {
-                        if (response.data.error) {
-                            alert('Error');
+                        console.log(response);
+                        if (response.data.errors) {
+                            console.log(response.data.message);
                         } else {
                             app.getAllPosts();
                         }
-                    });
+                    }).catch((error) => {console.warn('Not good man:(');});
                 },
             }
         });
